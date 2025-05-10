@@ -1,39 +1,42 @@
-#AIM:
-To implement Amplitude Shift Keying (ASK) and observe its output waveform.
+# ASK
+## Aim:
 
-#Tools required:-
-Python with NumPy & Matplotlib Digital Signal Processor (DSP) (for hardware implementation) Oscilloscope Modulator & Demodulator
+To perform Amplitude Shift Keying{ASK} using Python
 
-#Program:-
+## Tools required:
+
+Python: A versatile programming language used for scientific computing and signal processing. NumPy: A powerful numerical library in Python for performing array-based operations and mathematical computations. Matplotlib: A plotting library for generating high-quality graphs and visualizations of data, essentialfor demonstrating the sampling process.
+
+## Program:
 ```
 import numpy as np
 import matplotlib.pyplot as plt
 from scipy.signal import butter, lfilter
-### Butterworth low-pass filter for demodulation
+# Butterworth low-pass filter for demodulation
 def butter_lowpass_filter(data, cutoff, fs, order=5):
     nyquist = 0.5 * fs
     normal_cutoff = cutoff / nyquist
     b, a = butter(order, normal_cutoff, btype='low', analog=False)
     return lfilter(b, a, data)
-### Parameters
+# Parameters
 fs = 1000                # Sampling frequency
 f_carrier = 50           # Carrier frequency
 bit_rate = 10            # Data rate
 T = 1                    # Total time duration
 t = np.linspace(0, T, int(fs * T), endpoint=False)
-### Message signal (binary data)
+# Message signal (binary data)
 bits = np.random.randint(0, 2, bit_rate)
 bit_duration = fs // bit_rate
 message_signal = np.repeat(bits, bit_duration)
-### Carrier signal
+# Carrier signal
 carrier = np.sin(2 * np.pi * f_carrier * t)
-### ASK Modulation
+# ASK Modulation
 ask_signal = message_signal * carrier
-### ASK Demodulation
+# ASK Demodulation
 demodulated = ask_signal * carrier  # Multiply by carrier for coherent detection
 filtered_signal = butter_lowpass_filter(demodulated, f_carrier, fs)
 decoded_bits = (filtered_signal[::bit_duration] > 0.25).astype(int)
-### Plotting
+# Plotting
 plt.figure(figsize=(12, 8))
 plt.subplot(4, 1, 1)
 plt.plot(t, message_signal, label='Message Signal (Binary)', color='b')
@@ -52,9 +55,12 @@ plt.step(np.arange(len(decoded_bits)), decoded_bits, label='Decoded Bits', color
 plt.title('Decoded Bits')
 plt.tight_layout()
 plt.show()
-```
-#Output Waveform:-
-![ASK OUTPUT](https://github.com/user-attachments/assets/9a87b8e3-d879-435d-bd95-c36310134f28)
 
-#Results:-
-The binary data was successfully modulated using Amplitude Shift Keying (ASK). The ASK waveform was observed, where carrier presence represents '1' and absence represents '0'. The experiment successfully demonstrated digital-to-analog conversion using ASK.
+```
+## OUTPUT GRAPH:
+
+![ASK OUTPUT](https://github.com/user-attachments/assets/eaa7fdbf-9286-49ac-b814-383f203f8ab9)
+
+
+## Results:
+THUS THE ASK (Amplitude Shift Keying) IS PERFORMED USING PYTHON
