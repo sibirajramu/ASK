@@ -60,6 +60,7 @@ plt.show()
 ## OUTPUT GRAPH:
 
 ![ASK OUTPUT](https://github.com/user-attachments/assets/eaa7fdbf-9286-49ac-b814-383f203f8ab9)
+![ASK GRAPH](https://github.com/user-attachments/assets/5bdd4db6-1dca-4e01-9d25-1c3212defb1c)
 
 
 ## Results:
