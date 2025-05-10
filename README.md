@@ -1,8 +1,9 @@
+###AIM:
 To implement Amplitude Shift Keying (ASK) and observe its output waveform.
 
-Tools required:-
+###Tools required:-
 Python with NumPy & Matplotlib Digital Signal Processor (DSP) (for hardware implementation) Oscilloscope Modulator & Demodulator
-
+```
 Program:-
 import numpy as np
 import matplotlib.pyplot as plt
@@ -50,11 +51,9 @@ plt.step(np.arange(len(decoded_bits)), decoded_bits, label='Decoded Bits', color
 plt.title('Decoded Bits')
 plt.tight_layout()
 plt.show()
+```
 Output Waveform:-
-image
-
-Graph:-
-WhatsApp Image 2025-04-16 at 14 38 40_e5f8869c
+![ASK OUTPUT](https://github.com/user-attachments/assets/9a87b8e3-d879-435d-bd95-c36310134f28)
 
 Results:-
 The binary data was successfully modulated using Amplitude Shift Keying (ASK). The ASK waveform was observed, where carrier presence represents '1' and absence represents '0'. The experiment successfully demonstrated digital-to-analog conversion using ASK.
